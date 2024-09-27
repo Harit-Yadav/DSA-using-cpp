@@ -1,0 +1,11 @@
+int sum(int input[], int n) {
+ if( n == 0){
+   return 0;
+ }
+ int last_index_sum = input[n-1];
+ int ans = sum(input, n-1);
+
+ int total_sum = last_index_sum+ans;
+
+ return total_sum;
+}
