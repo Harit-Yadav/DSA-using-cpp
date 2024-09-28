@@ -9,24 +9,3 @@ void squareMatrix(int n,int arr[][100],int output[]){
 
 
 
-#include<iostream>
-using namespace std;
-
-#include"solution.h"
-
-int main(){
-    int n;
-    cin>>n;
-    int arr[n][100];
-    for(int i = 0;i<n;i++){
-        for(int j = 0;j<n;j++){
-            cin>>arr[i][j];
-        }
-    }
-    int output[n];
-    squareMatrix(n,arr,output);
-    for(int i = 0;i<n;i++){
-        cout<<output[i]<<" ";
-    }
-
-}
