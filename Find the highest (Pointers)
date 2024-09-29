@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int* findmax(int *ar,int n)
+{
+    int max = ar[0];
+    int *p = ar;
+    for(int i = 1; i<n; i++){
+        if (ar[i]>max){
+            max = ar[i];
+            p = ar+i;
+        }
+    }
+    return p;
+    
+}
