@@ -1,0 +1,11 @@
+void printIthNode(Node *head, int i)
+{
+   if(head == NULL){
+	   return;
+   }
+   if(i == 0){
+	   cout<<head->data;
+	   return;
+   }
+   printIthNode(head->next,  i-1);
+}
