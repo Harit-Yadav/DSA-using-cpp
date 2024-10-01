@@ -1,0 +1,18 @@
+void helper(char input[], int & number){
+if(input[0] == '\0'){
+    return;
+}
+int a = input[0] - '0';
+number = number *10 + a;
+helper(input+1,number);
+
+}
+
+int stringToNumber(char input[]) {
+   
+int number = 0;
+
+helper(input,number);
+return number;
+}
+
