@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while ( t !=0   ){
+    int n ;
+    cin>>n;
+
+    int *arr = new int [n];
+
+    for(int i = 0; i<n; i++){
+        cin>>arr[i];
+    }
+    for(int i = 0, j =0; j<n;j++ ){
+        if(arr[i] != 0){
+            i++;
+        }
+        else {
+            for(int j = i+1; j<n;j++ ){
+                arr[j-1] = arr[j];
+            }
+            arr[n-1] = 0;
+        }
+    }
+    for(int i = 0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    t--;
+}
+
+}
