@@ -1,0 +1,17 @@
+Node *deleteNode(Node *head, int pos) {
+	if(head == NULL) return NULL;
+if(pos == 0){
+	return head->next;
+}
+int i = 0;
+Node*temp = head;
+while(i<pos-1 && temp != NULL){
+	temp = temp ->next;
+	i++;
+}
+if(temp == NULL || temp -> next == NULL)return head;
+Node*curr = temp->next;
+temp->next=curr->next;
+delete curr;
+return head;
+}
