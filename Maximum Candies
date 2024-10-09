@@ -1,0 +1,15 @@
+void maximum_candy(int n, int arr[],int extraCandies,bool output[]){
+int max = arr[0];
+for(int i = 1; i<n;i++){
+    if (arr[i]> max)
+    max = arr[i];
+}
+for(int i = 0; i <n; i++){
+    int value = arr[i]+extraCandies;
+ if (value >= max){
+     output[i] = true;
+     
+ }
+ else output[i] =false;
+}
+}
