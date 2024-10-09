@@ -1,0 +1,27 @@
+int findLargest(int input[][1001], int nRows, int mCols) {
+    if (nRows == 0 || mCols == 0) return 0; // Edge case: no rows or columns
+
+    int maxRowSum = -1;
+    int maxColSum = -1;
+
+    // Compute row sums and find the maximum row sum
+    for (int i = 0; i < nRows; ++i) {
+        int rowSum = 0;
+        for (int j = 0; j < mCols; ++j) {
+            rowSum += input[i][j];
+        }
+        maxRowSum = max(maxRowSum, rowSum);
+    }
+
+    // Compute column sums and find the maximum column sum
+    for (int j = 0; j < mCols; ++j) {
+        int colSum = 0;
+        for (int i = 0; i < nRows; ++i) {
+            colSum += input[i][j];
+        }
+        maxColSum = max(maxColSum, colSum);
+    }
+
+    // Return the maximum value among row sums and column sums
+    return max(maxRowSum, maxColSum);
+}
