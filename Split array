@@ -1,0 +1,19 @@
+bool checkbalance(int *input, int size , int n, int l, int r){
+    if(n == size){
+        return l == r;
+    }
+    if(input[0]%3==0 && input[0]%5 != 0){
+        l += input[0];
+    }
+    else if (input[0]%5 ==0){
+        r+=input[0];
+    }
+    else{
+    return checkbalance(input+1,size,n+1,l+input[0],r) || checkbalance(input+1,size, n+1, l,r+input[0]);
+    }
+    return checkbalance(input+1,size,n+1,l,r);
+}
+
+bool splitArray(int *input, int size) {
+return  checkbalance(input,size,0,0,0);
+}
