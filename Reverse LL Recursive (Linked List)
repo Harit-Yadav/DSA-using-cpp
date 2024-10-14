@@ -1,0 +1,36 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+	        }
+        };
+
+*****************************************************************/
+
+Node *reverseLinkedListRec(Node *head)
+{
+   // Base case: if the list is empty or has only one element
+    if (head == NULL || head->next == NULL) {
+        return head;
+    }
+    
+    // Recursive case: reverse the rest of the list
+    Node* reversedRest = reverseLinkedListRec(head->next);
+    
+    // Make the current node's next node point back to the current node
+    head->next->next = head;
+    
+    // Set the current node's next to NULL (it will be the new tail)
+    head->next = NULL;
+    
+    return reversedRest; // Return the new head of the reversed list
+}
