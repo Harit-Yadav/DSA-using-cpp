@@ -1,0 +1,21 @@
+string getCompressedString(string &input) {
+
+string output = "";
+int i = 0;
+
+while(i < input.length()){
+
+    char curchar = input[i];
+
+    int frep = 0; 
+
+    while(i<input.length() && input[i] == curchar){
+        i++;
+        frep++;
+    }
+    output += curchar;
+    if(frep >1)
+    output += to_string (frep);
+}
+return output;
+}
