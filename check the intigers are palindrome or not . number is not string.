@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main () {
+int n, r, revers =0, x;
+cout<<"give the no to n"<<endl;
+cin>>n;
+
+x = n;
+while (x>0){
+    r = x%10;
+    revers = revers*10+r;
+    x = x/10;
+}
+if (revers == n){
+    cout<<n<<' '<<"condition true"<<endl;
+
+}
+else {
+    cout<<n<<"condition false"<<endl;
+}
+
+}
