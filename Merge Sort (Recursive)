@@ -1,0 +1,50 @@
+void mergeSort(int arr[], int l, int r) {
+
+if(l >= r){
+    return;
+}
+int mid = (l+r)/2;
+
+mergeSort(arr, l , mid);
+mergeSort(arr, mid+1, r);
+
+int output[r-l+1];
+
+int i=l;
+int j=mid+1;
+int k=0;
+
+while(i <= mid && j <= r){
+    if(arr[i] < arr[j]){
+        output[k] = arr[i];
+        i++;
+        k++;
+    }
+    else{
+        output[k] = arr[j];
+        j++;
+        k++;
+    }
+}
+
+while(i <= mid){
+    output[k] = arr[i];
+    i++;
+    k++;
+}
+
+while(j <= r){
+    output[k] = arr[j];
+    j++;
+    k++;
+}
+
+k = 0;
+i = l;
+while(i <= r){
+    arr[i] = output[k];
+    i++;
+    k++;
+}
+
+}
