@@ -1,0 +1,28 @@
+
+int partitionArray(int input[], int start, int end) {
+	
+int pivit = input[end];
+	
+	int left = start;
+
+for(int i = start ; i <= end; i++){
+	if(input[i]  <= pivit){
+	swap(input[i],input[left]);
+	left++;
+	}
+
+}
+return left-1;
+
+
+}
+
+void quickSort(int input[], int start, int end) {
+	
+	if(start >= end){
+		return;
+	}
+int index = partitionArray(input, start, end);
+	quickSort(input, start, index-1  );
+	quickSort(input, index+1, end  );
+}
