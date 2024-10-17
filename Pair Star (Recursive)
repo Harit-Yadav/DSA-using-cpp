@@ -1,0 +1,27 @@
+#include <cstring>
+
+void helper(char input[] , int start){
+if(input[start]  == '\0' || input[start+1] == '\0'){
+    return ;
+}
+if(input[start] == input[start+1]){
+    int n = strlen(input);
+
+    for(int i = n; i >  start; i--){
+        input[i+1] = input[i];
+    }
+input[start+1] = '*';
+helper( input, start+2 );
+
+}
+else {
+    helper(input, start+1);
+}
+
+
+}
+void pairStar(char input[]) {
+
+helper(input, 0);
+
+}
