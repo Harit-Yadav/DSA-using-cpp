@@ -1,0 +1,38 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+			Node *prev;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+				this->prev = NULL;
+	        }
+        };
+
+*****************************************************************/
+bool palindromeDLL(Node* head){
+    if(head == NULL || head->next == NULL ){
+		return true;
+	}
+
+	Node *temp = head;
+	while (temp->next != NULL){
+		temp = temp->next;
+	}
+
+	while(head != temp ){
+		if(head->data != temp->data){
+			return false;
+		}
+		head=head->next;
+		temp = temp->prev;
+	}
+	return true;
+}
