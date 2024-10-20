@@ -1,0 +1,21 @@
+
+Linked List 2
+profile picture
+
+
+		if(EH == nullptr){
+			return OH;
+		}
+		ET ->next = NULL;
+		OT->next = NULL;
+		OT->next=EH;
+		return OH;
+}
+
++ 80
+yellow-star
+Score earned
+notification-icon
+Great, 6/7 days completed!
+You are a step closer to your weekly streak.
+Made 10 formatting edits between lines 41 and 47
