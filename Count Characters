@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+int chars = 0;
+    int digits = 0;
+    int spaces = 0;
+    char c;
+
+    while (true) {
+        c = cin.get();
+        if (c == '$') {
+            break;
+        }
+        if (c >= '0' && c <= '9') {
+            digits++;
+        } else if (c >= 'a' && c <= 'z') {
+            chars++;
+        } else if (c == ' ' || c == '\t' || c == '\n') {
+            spaces++;
+        }
+    }
+
+    cout << chars << " " << digits << " " << spaces << endl;
+
+    return 0;;
+}
