@@ -1,0 +1,20 @@
+bool checkArmstrong(int n){
+	int a = n;
+    int l = 0;
+    while(a){
+        a%10 ;
+        l++;
+        a/=10;
+    }
+    int g= n;
+    int ans = 0;
+    while(g){
+        ans+=pow(g%10,l);
+        g/=10;
+    }
+    if (ans == n) {
+        return true;
+    } else {
+        return false;
+    }
+}
