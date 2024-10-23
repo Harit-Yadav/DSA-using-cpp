@@ -1,0 +1,24 @@
+
+int fact(int n){
+
+    if(n==0){
+        return 1;
+    }
+    int ans=1;
+    for(int i=1;i<=n;i++){
+         ans=ans*i;
+    }
+    return ans;
+
+}
+
+int permutation(int n, int r) {
+    if (r > n) {
+         return -1;
+    }
+    int ans = fact(n) / fact(n - r);
+
+    return ans;
+    
+}
+
