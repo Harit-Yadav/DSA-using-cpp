@@ -1,0 +1,18 @@
+#include <stack>
+bool isBalanced(string expression) 
+{
+stack<char>s;
+
+for(char ch : expression){
+    if(ch == '('){
+        s.push(ch);
+    }
+    else {
+        if (!s.empty()) {
+          s.pop();
+        }
+    }
+}
+return s.empty();
+
+}
