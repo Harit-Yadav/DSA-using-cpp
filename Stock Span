@@ -1,0 +1,19 @@
+#include <stack>
+void calculateSpan(int prices[], int n, int S[]) {
+    //Write your code here
+    stack<int>st;
+    st.push(0);
+     S[0] = 1;
+    for(int i = 1; i<n;i++){
+        while(!st.empty() && prices[st.top()] <prices[i]){
+            st.pop();
+        }
+        if(st.empty()){
+            S[i]=i+1;
+        } else {
+            S[i] = (i-st.top());
+        }
+        st.push(i);
+    }
+
+}
