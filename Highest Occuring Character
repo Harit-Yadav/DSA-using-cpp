@@ -19,5 +19,4 @@ char highestOccurringChar(char input[]) {
             resultChar = currentChar;
         }
     }
-
 }
