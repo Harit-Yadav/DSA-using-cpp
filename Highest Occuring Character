@@ -1,0 +1,23 @@
+char highestOccurringChar(char input[]) {
+    const int ALPHABET_SIZE = 26;
+    int frequency[ALPHABET_SIZE] = {0};
+    int maxFreq = 0;
+    char resultChar = '\0';
+
+    // Length of the input string
+    int len = std::strlen(input);
+
+    // Count frequencies of each character
+    for (int i = 0; i < len; ++i) {
+        char currentChar = input[i];
+        int index = currentChar - 'a'; // Convert character to index (0-25)
+        frequency[index]++;
+
+        // Update the result if we found a higher frequency character
+        if (frequency[index] > maxFreq) {
+            maxFreq = frequency[index];
+            resultChar = currentChar;
+        }
+    }
+
+}
