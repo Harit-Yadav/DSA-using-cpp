@@ -1,0 +1,25 @@
+int totalSum(int input[][501], int n)
+{
+    //Write your code here
+    int sum = 0;
+    for(int curcol = 0; curcol <n; curcol++){
+        sum += input[0][curcol]; 
+        sum += input[n-1][curcol]; 
+    }
+ for(int curcol = 1; curcol<n-1; curcol++ ){
+       sum += input[curcol][0]; 
+
+       sum += input[curcol][n-1];
+   }
+  for(int digonal = 1;digonal <n-1; digonal++){
+      sum += input[digonal][digonal]; // sum of primary diagona;
+  }
+  for(int r = 1, c=n-2; r<n-1  && c>=1; r++,c--){
+      sum += input[r][c]; 
+  }
+  
+  if(n %2 != 0){
+      sum -= input[n/2][n/2];
+  }
+  return sum;
+}
