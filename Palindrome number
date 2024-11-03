@@ -1,0 +1,15 @@
+bool palindrome(int n)
+{
+    int reverse = 0;
+    int orginal =n;
+    while(n!=0){
+    int lastdigit = n%10;
+    reverse = reverse *10+lastdigit;
+    n=n/10;
+}
+if (reverse == orginal){
+    return true;
+} else {
+    return false;
+}
+}
