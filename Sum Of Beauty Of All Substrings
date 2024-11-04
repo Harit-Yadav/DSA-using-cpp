@@ -1,0 +1,37 @@
+int myFunction(string s){
+		int freq[26] = {0};
+	for(int i = 0;i<s.length();i++){
+		char curChar = s[i];
+		int index = curChar-'a';
+		freq[index]++;
+	}
+	int maxFreq =freq[s[0]-'a'] ;
+	int minFreq = freq[s[0]-'a'];
+	for(int i=0;i<s.size();i++){
+		int index=s[i]-'a';
+		if(freq[index]<minFreq){
+			minFreq=freq[index];
+		}
+		if(freq[index]>maxFreq){
+			maxFreq=freq[index];
+		}
+	}
+	
+	
+	int curBeauty = maxFreq - minFreq;
+	return curBeauty;
+}
+int sumOfBeauty(string s) {
+int ans=0;
+for(int i =0; i<s.length();i++){
+
+    for(int j =1; j<=s.length()-i; j++){
+        int curBeauty  = myFunction(s.substr(i,j));
+		ans+=curBeauty;
+      }
+}
+
+
+return ans;
+    }
+	
