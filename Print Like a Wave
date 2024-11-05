@@ -1,0 +1,24 @@
+void wavePrint(int input[][1001], int nRows, int mCols) {
+    // Traverse through each column
+    for (int col = 0; col < mCols; ++col) {
+        // Check if the column index is even or odd
+        if (col % 2 == 0) {
+            // Print the column from top to bottom
+            for (int row = 0; row < nRows; ++row) {
+                cout << input[row][col];
+                // Print a space after each element except the last element
+                if (row < nRows - 1 || col < mCols - 1) cout << " ";
+            }
+        } else {
+            // Print the column from bottom to top
+            for (int row = nRows - 1; row >= 0; --row) {
+                cout << input[row][col];
+                // Print a space after each element except the last element
+                if (row > 0 || col < mCols - 1)
+                  cout << " ";
+            }
+        }
+    }
+    // End the output with a newline
+    cout << endl;
+}
