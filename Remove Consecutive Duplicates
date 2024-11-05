@@ -1,0 +1,15 @@
+void removeConsecutiveDuplicates(char input[]) {
+int i = 0 , k = 0;
+
+while(input[i] != '\0'){
+
+    if(input[i] == input[i+1])
+    i++;
+    else{
+        input[k] = input[i];
+        i++;
+        k++;
+    }
+}
+input[k] = '\0';
+}
