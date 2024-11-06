@@ -1,0 +1,18 @@
+int findDuplicate(int *arr, int n)
+{
+int xorArr = 0;  // XOR of all elements in the array
+    int xorRange = 0; // XOR of all numbers from 0 to N-2
+
+    // XOR all elements in the array
+    for(int i = 0; i < n; i++) {
+        xorArr ^= arr[i];
+    }
+
+    // XOR all numbers from 0 to N-2
+    for(int i = 0; i < n - 1; i++) {
+        xorRange ^= i;
+    }
+
+    // XOR of xorArr and xorRange will give the duplicate element
+    return xorArr ^ xorRange;
+}
