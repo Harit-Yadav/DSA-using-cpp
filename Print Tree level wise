@@ -1,0 +1,44 @@
+/************************************************************
+ 
+    Following is the structure for the TreeNode class
+
+    template <typename T>
+    class TreeNode {
+     public:
+        T data;
+        vector<TreeNode<T>*> children;
+    
+        TreeNode(T data) {
+            this->data = data;
+        }
+    
+        ~TreeNode() {
+            for (int i = 0; i < children.size(); i++) {
+                delete children[i];
+            }
+        }
+    };
+
+************************************************************/
+
+void printLevelWise(TreeNode<int>* root) {
+queue<TreeNode<int>*>t;
+
+t.push(root);
+
+while(!t.empty()){
+    TreeNode<int>*h = t.front();
+
+   t.pop();
+   cout<<h->data<<":";
+   for(int i = 0; i<h->children.size(); i++){
+       cout<<h->children[i]->data;
+       if(i<h->children.size()-1) cout<<",";
+
+    t.push(h->children[i]);
+   } 
+   cout<<endl;
+}
+
+}
+
