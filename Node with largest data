@@ -1,0 +1,48 @@
+/************************************************************
+ 
+    Following is the structure for the TreeNode class
+
+    template <typename T>
+    class TreeNode {
+     public:
+        T data;
+        vector<TreeNode<T>*> children;
+    
+        TreeNode(T data) {
+            this->data = data;
+        }
+    
+        ~TreeNode() {
+            for (int i = 0; i < children.size(); i++) {
+                delete children[i];
+            }
+        }
+    };
+
+************************************************************/
+
+TreeNode<int>* maxDataNode(TreeNode<int>* root) {
+queue<TreeNode<int>*>q;
+
+   q.push(root);
+
+   TreeNode<int>*maxi = new TreeNode<int>(root->data);
+
+   while(!q.empty()){
+       TreeNode<int>*h = q.front();
+       q.pop();
+  
+  if(h->data > maxi->data){
+      maxi = h;
+
+  }
+
+for(int i = 0; i<h->children.size(); i++){
+
+q.push(h->children[i]);
+}
+
+   }
+   
+return maxi;
+}
