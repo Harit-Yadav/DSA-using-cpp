@@ -1,0 +1,43 @@
+/************************************************************
+ 
+    Following is the structure for the TreeNode class
+
+    template <typename T>
+    class TreeNode {
+     public:
+        T data;
+        vector<TreeNode<T>*> children;
+    
+        TreeNode(T data) {
+            this->data = data;
+        }
+    
+        ~TreeNode() {
+            for (int i = 0; i < children.size(); i++) {
+                delete children[i];
+            }
+        }
+    };
+
+************************************************************/
+
+bool isPresent(TreeNode<int>* root, int x) {
+    if (root == nullptr) {
+        return false;
+    }
+
+    // If the current node's data matches x, return true
+    if (root->data == x) {
+        return true;
+    }
+
+    // Recurse over the children of the current node
+    for (TreeNode<int>* child : root->children) {
+        if (isPresent(child, x)) {
+            return true; // If any child contains x, return true
+        }
+    }
+
+    // If x is not found in the current node or any of its children, return false
+    return false;
+}
