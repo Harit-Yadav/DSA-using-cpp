@@ -1,0 +1,19 @@
+int allIndexesHelper(int input[], int size, int x, int output[], int currentIndex) {
+    if (currentIndex == size) {
+        return 0;  // No more indices to process, return 0
+    }
+    
+    int count = 0;
+    if (input[currentIndex] == x) {
+        output[count] = currentIndex;
+        count = 1;  // We have found one index
+    }
+    
+    int remainingCount = allIndexesHelper(input, size, x, output + count, currentIndex + 1);
+    
+}   return count + remainingCount;
+}
+
+int allIndexes(int input[], int size, int x, int output[]) {
+    return allIndexesHelper(input, size, x, output, 0);
+}
