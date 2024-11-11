@@ -1,0 +1,20 @@
+bool isPermutation(char input1[], char input2[]) {
+    if (strlen(input1) != strlen(input2)) {
+        return false;
+    }
+
+    int frequency[26] = {0};
+
+    for (int i = 0; input1[i] != '\0'; i++) {
+        frequency[input1[i] - 'a']++; // Increment count for input1
+        frequency[input2[i] - 'a']--; // Decrement count for input2
+    }
+
+    for (int i = 0; i < 26; i++) {
+        if (frequency[i] != 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
