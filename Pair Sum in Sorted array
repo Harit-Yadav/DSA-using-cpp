@@ -1,0 +1,22 @@
+int pairSum(int A[], int size, int K)
+{
+     // Write your code here.
+      int left = 0, right = size - 1;
+    int count = 0;
+
+    while (left < right) {
+        int currentSum = A[left] + A[right];
+        
+        if (currentSum == K) {
+            count++;  // Found a valid pair
+            left++;
+            right--;
+        } else if (currentSum < K) {
+            left++;  // Move left pointer to the right to increase the sum
+        } else {
+            right--;  // Move right pointer to the left to decrease the sum
+        }
+    }
+
+    return count;
+}
