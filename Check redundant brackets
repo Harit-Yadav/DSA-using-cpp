@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+bool checkRedundantBrackets(string expression) {
+    stack<char> s;
+    
+    for (char ch : expression) {
+        if (ch == ')') {
+            char top = s.top();
+            s.pop();
+            
+            if (top == '(') {
+                return true;
+            }
+            
+            bool hasOperator = false;
+            while (top != '(') {
+                if (top == '+' || top == '-' || top == '*' || top == '/') {
+                    hasOperator = true;
+                }
+                top = s.top();
+                s.pop();
+            }
+            
+            if (!hasOperator) {
+                return true;
+            }
+        } else {
+            s.push(ch);
+        }
+    }
+    
+    return false;
+}
+
