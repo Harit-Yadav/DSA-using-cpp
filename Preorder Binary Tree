@@ -1,0 +1,36 @@
+/************************************************************
+
+    Following is the TreeNode class structure
+
+    template <typename T>
+    class TreeNode {
+       public:
+        T data;
+        TreeNode<T> *left;
+        TreeNode<T> *right;
+
+        TreeNode(T data) {
+            this->data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+************************************************************/
+void helper(TreeNode<int> *root , vector<int> &pre_order){
+    if(root == nullptr) return;
+pre_order.push_back(root->data);
+
+helper(root->left , pre_order);
+
+helper(root->right , pre_order);
+
+
+}
+
+vector<int> preOrder(TreeNode<int> * root){
+vector<int> pre_order;
+helper(root , pre_order);
+
+return pre_order;
+}
